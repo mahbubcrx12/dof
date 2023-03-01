@@ -1,3 +1,4 @@
+import 'package:dof_agein/view/fisher_id_verification.dart';
 import 'package:dof_agein/view/qr_scanner.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -12,18 +13,13 @@ class QrValues extends StatelessWidget {
  
   @override
   Widget build(BuildContext context) {
-    final List<String> qrDataList = qrResult!.code!.split('\n');
+    //final List<String> qrDataList = qrResult!.code!.split('\n');
      
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         leading:
-        // InkWell(
-        //   onTap: (){
-        //      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>QRScanner()));
-        //   },
-        //   child: Icon(Icons.arrow_back_ios),
-        // ),
+
         IconButton(
           splashColor: Colors.blueGrey[200],
           splashRadius: 30,
@@ -39,7 +35,7 @@ class QrValues extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Scanned Values",
+          "FID Verification",
           style: TextStyle(
               color: Colors.black.withOpacity(.65),
               fontWeight: FontWeight.bold),
@@ -49,51 +45,85 @@ class QrValues extends StatelessWidget {
       ),
       body: Container(
         child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-           // mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('${qrResult!.code}'),
-              Text(qrDataList[0]),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * .1,
-              ),
-              Text(qrDataList[0].substring(12),style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500
-              ),),
-              // Text(qrDataList[1],style: TextStyle(
-              //     fontSize: 16,
-              //     fontWeight: FontWeight.w500
-              // )),
-              // Text(qrDataList[2],style: TextStyle(
-              //     fontSize: 16,
-              //     fontWeight: FontWeight.w500
-              // )),
-              // Text(qrDataList[3],style: TextStyle(
-              //     fontSize: 16,
-              //     fontWeight: FontWeight.w500
-              // )),
-              SizedBox(height: MediaQuery.of(context).size.height * .1,),
-              ElevatedButton(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+             // mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 50,
+                  width: double.infinity,
+                  color: Colors.blueGrey.withOpacity(.3),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Center(
+                      child: Text(
+                        "Check the URL is same or not and then click on verify to see the fisher...",
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ),
 
-                  style: ButtonStyle(
-                      minimumSize: MaterialStateProperty.all(Size(120, 50)),
-                      backgroundColor: MaterialStateProperty.all(Colors.red)),
-                  onPressed: () {
-                    // if (_key.currentState!.validate()) {
-                    //   _key.currentState!.save();
-                    //   Navigator.of(context).push(MaterialPageRoute(
-                    //       builder: (_) => SearchFisherMan(
-                    //         searchInput: filterController.text,
-                    //       )));
-                    // }
-                  },
-                  child: Text("Verify Fisher",style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white ),)
-              )
-            ],
+                Container(
+                  height: 50,
+                  width: double.infinity,
+                  color: Colors.blueGrey.withOpacity(.05),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Center(
+                      child: Text(
+                        "Authentic: dof-demo.rdtl.xyz/fisher-id-card-verification/xxxxx/xxxxxxxxxxxxxxxx",
+                        style: TextStyle(
+                            color: Colors.green,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16),
+                      ),
+                    ),
+                  ),
+                ),
+
+                Container(
+                  height: 50,
+                  width: double.infinity,
+                  color: Colors.blueGrey.withOpacity(.05),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Center(
+                      child: Text(
+                        "Scanned: ${qrResult!.code}",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16),
+                      ),
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: MediaQuery.of(context).size.height * .04,),
+                Align(
+                  alignment: Alignment.center,
+                  child: ElevatedButton(
+
+                      style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all(Size(120, 50)),
+                          backgroundColor: MaterialStateProperty.all(Colors.red)),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => FisherIdentification(fisherIdUrl: qrResult,) ));
+                      },
+                      child: Text("Verify",style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white ),)
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

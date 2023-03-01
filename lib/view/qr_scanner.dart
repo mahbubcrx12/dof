@@ -14,7 +14,7 @@ class QRScanner extends StatefulWidget {
 
 class _QRScannerState extends State<QRScanner> {
   Barcode? result;
- late List<String> qrDataList;
+// late List<String> qrDataList;
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
 
@@ -52,8 +52,11 @@ class _QRScannerState extends State<QRScanner> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Container(
-                        margin: const EdgeInsets.all(8),
+                        margin: const EdgeInsets.all(6),
                         child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+                            ),
                             onPressed: () async {
                               await controller?.toggleFlash();
                               setState(() {});
@@ -68,6 +71,9 @@ class _QRScannerState extends State<QRScanner> {
                       Container(
                         margin: const EdgeInsets.all(8),
                         child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+                            ),
                             onPressed: () async {
                               await controller?.flipCamera();
                               setState(() {});
@@ -93,20 +99,26 @@ class _QRScannerState extends State<QRScanner> {
                       Container(
                         margin: const EdgeInsets.all(8),
                         child: ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+                          ),
                           onPressed: () async {
                             await controller?.pauseCamera();
                           },
-                          child: const Text('pause',
+                          child: const Text('Pause',
                               style: TextStyle(fontSize: 20)),
                         ),
                       ),
                       Container(
                         margin: const EdgeInsets.all(8),
                         child: ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+                          ),
                           onPressed: () async {
                             await controller?.resumeCamera();
                           },
-                          child: const Text('resume',
+                          child: const Text('Resume',
                               style: TextStyle(fontSize: 20)),
                         ),
                       )
@@ -151,12 +163,7 @@ class _QRScannerState extends State<QRScanner> {
        // qrDataList = result!.code!.split('\n');
         Navigator.of(context).push(MaterialPageRoute(builder: (context)=>QrValues(qrResult: result,)));
       });
-      // try{
-      //   Navigator.of(context).push(MaterialPageRoute(builder: (context)=>QrValues(qrDataList: qrDataList)));
-      // }
-      // catch(e){
-      //   Navigator.of(context).push(MaterialPageRoute(builder: (context)=>VerificationError()));
-      // }
+
     });
   }
 
