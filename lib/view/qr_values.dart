@@ -70,14 +70,14 @@ class QrValues extends StatelessWidget {
                 ),
 
                 Container(
-                  height: 50,
+                  // height: 50,
                   width: double.infinity,
                   color: Colors.blueGrey.withOpacity(.05),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: Center(
                       child: Text(
-                        "Authentic: dof-demo.rdtl.xyz/fisher-id-card-verification/xxxxx/xxxxxxxxxxxxxxxx",
+                        "Authentic: dof-demo.rdtl.xyz/fisher-id-card-verification/.../...",
                         style: TextStyle(
                             color: Colors.green,
                             fontWeight: FontWeight.w500,
@@ -88,7 +88,7 @@ class QrValues extends StatelessWidget {
                 ),
 
                 Container(
-                  height: 50,
+                 // height: 50,
                   width: double.infinity,
                   color: Colors.blueGrey.withOpacity(.05),
                   child: Padding(

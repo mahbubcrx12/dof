@@ -61,7 +61,7 @@ class _SearchHereState extends State<SearchHere> {
 
                     },
                     decoration: InputDecoration(
-                        hintText: "Form ID/NID",
+                        hintText: "Enter FID/NID",
                         prefixIcon: Icon(
                           Icons.search_outlined,
                           color: Colors.green,

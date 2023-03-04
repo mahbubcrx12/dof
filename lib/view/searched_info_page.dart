@@ -1,6 +1,4 @@
-
 import 'dart:convert';
-
 import 'package:dof_agein/view/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -9,7 +7,7 @@ import '../model/fisherman_model.dart';
 
 class SearchFisherMan extends StatefulWidget {
   SearchFisherMan({Key? key, required this.searchInput}) : super(key: key);
-  String searchInput;
+  String? searchInput;
 
   @override
   State<SearchFisherMan> createState() => _SearchFisherManState();
@@ -27,7 +25,7 @@ class _SearchFisherManState extends State<SearchFisherMan> {
       print(response.statusCode);
       if (response.statusCode == 200) {
         var data = jsonDecode(response.body);
-
+          print(data);
 
         Data fisharData;
         for (var i in data['data']) {
@@ -50,6 +48,7 @@ class _SearchFisherManState extends State<SearchFisherMan> {
   void didChangeDependencies() async {
     // TODO: implement didChangeDependencies
     await fetchFisherman(widget.searchInput);
+   // await SearchFisher().fetchFisherman(widget.searchInput);
     setState(() {});
     super.didChangeDependencies();
   }
@@ -99,7 +98,7 @@ class _SearchFisherManState extends State<SearchFisherMan> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
                         height: 50,
@@ -137,10 +136,10 @@ class _SearchFisherManState extends State<SearchFisherMan> {
                                     borderRadius: BorderRadius.circular(10),
                                     child: Image(
                                       image: NetworkImage(
-                                        "${fishermanData[index].fishermanNameBng}",
+                                        "https://s3.us-west-1.wasabisys.com/dof-image-final/${fishermanData[index].photoPath}",
                                       ),
-                                      height: 300,
-                                      width: 300,
+                                      height: 250,
+                                      width: 220,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -406,7 +405,7 @@ class _SearchFisherManState extends State<SearchFisherMan> {
                           padding: const EdgeInsets.symmetric(horizontal: 15),
                           child: Center(
                             child: Text(
-                              "Family Information (পারিবারিক তথ্য) ",
+                              "Family Information (পারিবারিক তথ্য)",
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,

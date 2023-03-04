@@ -161,6 +161,7 @@ class _QRScannerState extends State<QRScanner> {
       setState(() {
         result = scanData;
        // qrDataList = result!.code!.split('\n');
+        controller.pauseCamera();
         Navigator.of(context).push(MaterialPageRoute(builder: (context)=>QrValues(qrResult: result,)));
       });
 

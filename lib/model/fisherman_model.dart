@@ -86,9 +86,12 @@ class Data {
   String? fishermenYearlyLoan;
   String? fishermenYearlySaving;
   String? fishermenDangerPeriodofLiving;
+  String? photoPath;
 
   Data(
-      {this.formId,
+      {
+        this.photoPath,
+        this.formId,
         this.status,
         this.permanentPostOffice,
         this.fishermanNameBng,
@@ -148,6 +151,7 @@ class Data {
         this.fishermenDangerPeriodofLiving});
 
   Data.fromJson(Map<String, dynamic> json) {
+    photoPath = json['photoPath'];
     formId = json['formId'];
     status = json['status'];
     permanentPostOffice = json['permanentPostOffice'];
@@ -210,6 +214,7 @@ class Data {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['photoPath'] = this.photoPath;
     data['formId'] = this.formId;
     data['status'] = this.status;
     data['permanentPostOffice'] = this.permanentPostOffice;
