@@ -28,7 +28,68 @@ class FishermanModel {
 }
 
 class Data {
+  // String? formId;
+  // String? status;
+  // String? permanentPostOffice;
+  // String? fishermanNameBng;
+  // String? fishermanNameEng;
+  // String? nationalIdNo;
+  // String? gender;
+  // String? mothersName;
+  // String? fathersName;
+  // String? spouseName;
+  // String? dateOfBirth;
+  // String? mobile;
+  // String? permanentDivision;
+  // String? permanentDistrict;
+  // String? permanentUpazilla;
+  // String? permanentMuniciplaity;
+  // String? permanentUnion;
+  // String? permanentVillage;
+  // String? permenentPostOffice;
+  // String? placeOfBirth;
+  // String? religion;
+  // String? education;
+  // String? maritalStaus;
+  // int? totalFamilyMember;
+  // String? numberOfSpouse;
+  // String? numberOfMother;
+  // String? numberOfFather;
+  // String? numberOfDaughter;
+  // String? numberOfSon;
+  // String? nationality;
+  // String? presentDivision;
+  // String? presentDistrict;
+  // String? presentUpazilla;
+  // String? presentMunicipality;
+  // String? presentUnion;
+  // String? presentVillage;
+  // String? presentPostOffice;
+  // String? timeOfFishing;
+  // String? typeOfFishing;
+  // String? groupMember;
+  // String? ownerOfNet;
+  // String? lengthOfNet;
+  // String? widthOfNet;
+  // String? priceOfNet;
+  // String? sourceOfPurchaseOfNet;
+  // String? typeOfVessel;
+  // String? ownerOfVessel;
+  // String? lengthOfVessels;
+  // String? widthOfVessels;
+  // String? heightOfVessels;
+  // String? priceOfVessels;
+  // String? typeOfEmploymentonVessel;
+  // String? mainProfession;
+  // String? subProfession;
+  // int? annualIncome;
+  // String? fishermenYearlyLoan;
+  // String? fishermenYearlySaving;
+  // String? fishermenDangerPeriodofLiving;
+  // String? photoPath;
+
   String? formId;
+  String? photoPath;
   String? status;
   String? permanentPostOffice;
   String? fishermanNameBng;
@@ -52,11 +113,11 @@ class Data {
   String? education;
   String? maritalStaus;
   int? totalFamilyMember;
-  String? numberOfSpouse;
-  String? numberOfMother;
-  String? numberOfFather;
-  String? numberOfDaughter;
-  String? numberOfSon;
+  int? numberOfSpouse;
+  int? numberOfMother;
+  int? numberOfFather;
+  int? numberOfDaughter;
+  int? numberOfSon;
   String? nationality;
   String? presentDivision;
   String? presentDistrict;
@@ -69,16 +130,16 @@ class Data {
   String? typeOfFishing;
   String? groupMember;
   String? ownerOfNet;
-  String? lengthOfNet;
-  String? widthOfNet;
-  String? priceOfNet;
+  int? lengthOfNet;
+  int? widthOfNet;
+  int? priceOfNet;
   String? sourceOfPurchaseOfNet;
   String? typeOfVessel;
   String? ownerOfVessel;
-  String? lengthOfVessels;
-  String? widthOfVessels;
-  String? heightOfVessels;
-  String? priceOfVessels;
+  int? lengthOfVessels;
+  int? widthOfVessels;
+  double? heightOfVessels;
+  int? priceOfVessels;
   String? typeOfEmploymentonVessel;
   String? mainProfession;
   String? subProfession;
@@ -86,7 +147,6 @@ class Data {
   String? fishermenYearlyLoan;
   String? fishermenYearlySaving;
   String? fishermenDangerPeriodofLiving;
-  String? photoPath;
 
   Data(
       {
