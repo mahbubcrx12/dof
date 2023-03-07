@@ -219,7 +219,7 @@ class _HomePageDrawerState extends State<HomePageDrawer> {
                               width: 10,
                             ),
                             Text(
-                              "Scan QR",
+                              "Verify Fisher",
                               style: TextStyle(
                                 fontSize: 20,
                                 color: Colors.black,

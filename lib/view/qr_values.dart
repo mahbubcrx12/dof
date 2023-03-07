@@ -35,7 +35,7 @@ class QrValues extends StatelessWidget {
           ),
         ),
         title: Text(
-          "FID Verification",
+          "Fisher Verification",
           style: TextStyle(
               color: Colors.black.withOpacity(.65),
               fontWeight: FontWeight.bold),

@@ -37,10 +37,13 @@ class _FisherIdentificationState extends State<FisherIdentification> {
       ),
       body: Container(
         child:
-        WebView(
-          initialUrl: "${widget.fisherIdUrl!.code}",
-          javascriptMode: JavascriptMode.unrestricted,
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: WebView(
+            initialUrl: "${widget.fisherIdUrl!.code}",
+            javascriptMode: JavascriptMode.unrestricted,
 
+          ),
         ),
 
       ),

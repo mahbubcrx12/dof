@@ -28,9 +28,34 @@ class _QRScannerState extends State<QRScanner> {
     }
     controller!.resumeCamera();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        leading:
+
+        IconButton(
+          splashColor: Colors.blueGrey[200],
+          splashRadius: 30,
+          onPressed: (() {
+            Navigator.of(context).pop();
+          }),
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black.withOpacity(.65),
+          ),
+        ),
+        title: Text(
+          "Scan QR Code",
+          style: TextStyle(
+              color: Colors.black.withOpacity(.65),
+              fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.green,
+      ),
       body: Column(
         children: <Widget>[
           Expanded(flex: 4, child: _buildQrView(context)),
@@ -64,7 +89,9 @@ class _QRScannerState extends State<QRScanner> {
                             child: FutureBuilder(
                               future: controller?.getFlashStatus(),
                               builder: (context, snapshot) {
-                                return Text('Flash: ${snapshot.data}');
+                                return snapshot.data == true
+                                  ? Text('Flash: On')
+                                 : Text('Flash: Off');
                               },
                             )),
                       ),
@@ -82,8 +109,15 @@ class _QRScannerState extends State<QRScanner> {
                               future: controller?.getCameraInfo(),
                               builder: (context, snapshot) {
                                 if (snapshot.data != null) {
-                                  return Text(
-                                      'Camera facing ${describeEnum(snapshot.data!)}');
+                                  return describeEnum(snapshot.data!) == 'back'
+                                    ? Text(
+                                      'Camera: Back')
+                                     : Text(
+                                      'Camera: Front')
+
+                                    // Text(
+                                    //   'Camera: ${describeEnum(snapshot.data!)}')
+                                  ;
                                 } else {
                                   return const Text('loading');
                                 }
@@ -106,7 +140,8 @@ class _QRScannerState extends State<QRScanner> {
                             await controller?.pauseCamera();
                           },
                           child: const Text('Pause',
-                              style: TextStyle(fontSize: 20)),
+                             // style: TextStyle(fontSize: 20)
+                          ),
                         ),
                       ),
                       Container(
@@ -119,7 +154,8 @@ class _QRScannerState extends State<QRScanner> {
                             await controller?.resumeCamera();
                           },
                           child: const Text('Resume',
-                              style: TextStyle(fontSize: 20)),
+                              //style: TextStyle(fontSize: 20)
+                          ),
                         ),
                       )
                     ],

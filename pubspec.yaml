@@ -61,6 +61,7 @@ flutter_icons:
   ios: true
   image_path: "asset/logo.png"
   min_sdk_android: 21
+  adaptive_icon_foreground: "asset/logo.png"
   # android min sdk min:16, default 21
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

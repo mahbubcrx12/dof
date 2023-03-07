@@ -44,67 +44,69 @@ class _SearchHereState extends State<SearchHere> {
           padding: const EdgeInsets.all(20.0),
           child: Form(
             key: _key,
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 100,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: TextFormField(
-                    controller: filterController,
-                    keyboardType: TextInputType.number,
-                    validator: (value) {
-                      if (value == null || value.isEmpty)
-                        return "Enter Form ID or NID";
-                      return null;
-
-                    },
-                    decoration: InputDecoration(
-                        hintText: "Enter FID/NID",
-                        prefixIcon: Icon(
-                          Icons.search_outlined,
-                          color: Colors.green,
-                        ),
-                        suffixIcon: InkWell(
-                          onTap: (){
-                            filterController.clear();
-                          },
-                          child: Icon(
-                            Icons.clear,
-                            color: Colors.red,
-
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Colors.green, width: 2.0)),
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.green,
-                              width: 20,
-                            ))),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 100,
                   ),
-                ),
-                ElevatedButton(
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: TextFormField(
+                      controller: filterController,
+                      keyboardType: TextInputType.number,
+                      validator: (value) {
+                        if (value == null || value.isEmpty)
+                          return "Enter Form ID or NID";
+                        return null;
 
-                    style: ButtonStyle(
-                        minimumSize: MaterialStateProperty.all(Size(120, 50)),
-                        backgroundColor: MaterialStateProperty.all(Colors.green)),
-                    onPressed: () {
-                      if (_key.currentState!.validate()) {
-                        _key.currentState!.save();
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (_) => SearchFisherMan(
-                              searchInput: filterController.text,
-                            )));
-                      }
-                    },
-                    child: Text("Search",style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white ),)
-                )
-              ],
+                      },
+                      decoration: InputDecoration(
+                          hintText: "Enter FID/NID",
+                          prefixIcon: Icon(
+                            Icons.search_outlined,
+                            color: Colors.green,
+                          ),
+                          suffixIcon: InkWell(
+                            onTap: (){
+                              filterController.clear();
+                            },
+                            child: Icon(
+                              Icons.clear,
+                              color: Colors.red,
+
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Colors.green, width: 2.0)),
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.green,
+                                width: 20,
+                              ))),
+                    ),
+                  ),
+                  ElevatedButton(
+
+                      style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all(Size(120, 50)),
+                          backgroundColor: MaterialStateProperty.all(Colors.green)),
+                      onPressed: () {
+                        if (_key.currentState!.validate()) {
+                          _key.currentState!.save();
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (_) => SearchFisherMan(
+                                searchInput: filterController.text,
+                              )));
+                        }
+                      },
+                      child: Text("Search",style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white ),)
+                  )
+                ],
+              ),
             ),
           ),
         ),

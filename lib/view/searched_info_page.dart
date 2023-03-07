@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:dof_agein/constant/toast_message.dart';
 import 'package:dof_agein/view/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -39,6 +40,9 @@ class _SearchFisherManState extends State<SearchFisherMan> {
       }
     } catch (e) {
       print("Errrrrrr $e");
+      showInToast("Fisher Not Found.",
+      );
+      Navigator.of(context).pop();
       return fishermanData;
     }
   }
@@ -844,7 +848,7 @@ class _SearchFisherManState extends State<SearchFisherMan> {
                             ),
                           ),
                           Container(
-                            width: MediaQuery.of(context).size.width,
+                            width: double.infinity,
                             color: Colors.blueGrey.withOpacity(.1),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -1080,7 +1084,7 @@ class _SearchFisherManState extends State<SearchFisherMan> {
                             ),
                           ),
                           Container(
-                            width: MediaQuery.of(context).size.width,
+                            width: double.infinity,
                             color: Colors.blueGrey.withOpacity(.1),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -1328,7 +1332,7 @@ class _SearchFisherManState extends State<SearchFisherMan> {
                             ),
                           ),
                           Container(
-                            width: MediaQuery.of(context).size.width,
+                            width: double.infinity,
                             color: Colors.blueGrey.withOpacity(.1),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
